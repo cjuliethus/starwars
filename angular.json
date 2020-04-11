@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "starwars"
+    }
+  },
+  "defaultProject": "starwars",
+  "cli": {
+    "analytics": "fe3cb6a7-ac4c-40df-99af-a60c7a1ea594"
+  }
 }

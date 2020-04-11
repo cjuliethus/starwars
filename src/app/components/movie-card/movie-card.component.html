@@ -1,0 +1,19 @@
+<!-- movie-card -->
+<div class="movie-card" (click)="handleClick($event)">
+  <div class="image">
+    <img [src]="'../assets/episode_' + episode + '.jpg'" alt="" />
+  </div>
+  <div class="content">
+    <div class="title">{{ title }}</div>
+    <div class="subtitle">Episode {{ episode }}</div>
+    <div class="description">
+      {{ description }}
+    </div>
+    <div class="date">
+      <div class="spacer"></div>
+      <small>
+        {{ date | dateFormat: "MMMM Do YYYY" }}
+      </small>
+    </div>
+  </div>
+</div>
