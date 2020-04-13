@@ -1,5 +1,7 @@
 <div class="movie-filter-component">
-    <div class="image-filter">
+    <div class="image-filter" 
+        (click)="openFilterCriteria()">
         <img [src]="'../assets/filter-icon.png'" alt="" />
     </div>
 </div>
+<app-movie-filter-criteria [open]="open"></app-movie-filter-criteria>

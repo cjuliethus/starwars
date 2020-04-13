@@ -5,6 +5,7 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
 import { DateFormatPipe } from './pipes/date-format.pipe';
 import { DetailsMovieComponent } from './details-movie/details-movie.component';
 import { MovieFilterComponent } from './movie-filter/movie-filter.component';
+import { MovieFilterCriteriaComponent } from './movie-filter-criteria/movie-filter-criteria.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { MovieFilterComponent } from './movie-filter/movie-filter.component';
     MovieCardComponent,
     DateFormatPipe,
     MovieFilterComponent,
+    MovieFilterCriteriaComponent,
   ],
   imports: [BrowserModule],
   providers: [],

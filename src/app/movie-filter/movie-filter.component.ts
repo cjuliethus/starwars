@@ -9,6 +9,11 @@ export class MovieFilterComponent implements OnInit {
 
   constructor() { }
 
+  open = false;
+  openFilterCriteria() {
+    this.open = !this.open;
+  }
+
   ngOnInit(): void {
   }
 
