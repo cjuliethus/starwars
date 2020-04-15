@@ -6,11 +6,11 @@
     <app-movie-card
       (click)="openDetail()"
       *ngFor="let item of movieList"
-      [id]="item.id"
+      [id]="item.episode_id"
       [title]="item.title"
-      [episode]="item.episode"
-      [description]="item.description"
-      [date]="item.date"
+      [episode]="item.episode_id"
+      [description]="item.opening_crawl"
+      [date]="item.release_date"
     ></app-movie-card>
     <app-details-movie [open]="open"></app-details-movie>
   </div>

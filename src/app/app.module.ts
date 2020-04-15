@@ -6,6 +6,7 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
 import { DetailsMovieComponent } from './details-movie/details-movie.component';
 import { MovieFilterComponent } from './movie-filter/movie-filter.component';
 import { MovieFilterCriteriaComponent } from './movie-filter-criteria/movie-filter-criteria.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { MovieFilterCriteriaComponent } from './movie-filter-criteria/movie-filt
     MovieFilterComponent,
     MovieFilterCriteriaComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
