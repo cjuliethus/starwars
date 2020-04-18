@@ -65,7 +65,7 @@
     margin-top: 20px;
     width: 100%;
 
-    input{
+    input, select{
       display: block;
       width: 100%;
       margin-top: 3px;
@@ -76,6 +76,11 @@
       box-shadow: inset 0 0px 0px #000;
       border-width: 0px;
     }
+    
+    select {
+      height: 28px;
+      width: 120%;
+    }
 
     label{
       font-size: 10px;
@@ -83,6 +88,20 @@
 
     .criteria-name{
       width: 70%;
+      float: left;
+    }
+
+    .criteria-year{
+      width: 20%;
+      float: left;
+      margin-left: 10%;
+    }
+
+    .content-year {
+      width: 100%;
+      height: 31px;
+      overflow: hidden;
+      border-radius: 30px 30px 23px 23px;
     }
   }
 }

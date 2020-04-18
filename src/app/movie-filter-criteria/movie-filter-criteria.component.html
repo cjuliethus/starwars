@@ -16,6 +16,19 @@
             <label for="movieName">Título</label>
             <input type="text" id="movieName">
           </div>
+          <div class="criteria-year">
+            <label for="movieYear">Año</label>
+            <div class="content-year">
+              <select id="movieYear">
+                <option>
+                </option>
+                {{years}}
+                <option *ngFor="let year of years" [value]="year">
+                  {{year}}
+                </option>
+              </select>
+            </div>
+          </div>
         </form>
       </div>
     </div>
