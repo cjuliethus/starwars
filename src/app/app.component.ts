@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'starwars';
-  constructor(private http: HttpClient) { }
+  yearMovieFilter = '';
+
+  constructor(private http: HttpClient, private dataService: DataService) {
+    dataService.yearMovie$.subscribe(yearMovie => this.yearMovieFilter = yearMovie)
+   }
   readonly ROOT_URL = 'http://swapi.py4e.com/api/films/';
   posts: any;
   getFilms() {

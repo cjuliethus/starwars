@@ -19,7 +19,7 @@
           <div class="criteria-year">
             <label for="movieYear">Año</label>
             <div class="content-year">
-              <select id="movieYear">
+              <select id="movieYear" name="movieYear" (change)="onChangeYear($event.target.value)">
                 <option>
                 </option>
                 {{years}}

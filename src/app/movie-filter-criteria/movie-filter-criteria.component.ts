@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { range } from 'rxjs';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-movie-filter-criteria',
@@ -8,9 +8,10 @@ import { range } from 'rxjs';
 })
 export class MovieFilterCriteriaComponent implements OnInit {
 
-  years = Number[200]
+  movieYearSelected = '';
+  years = [];
 
-  constructor() {
+  constructor(private dataService: DataService) {
     this.years = this.getYears()
   }
 
@@ -19,11 +20,15 @@ export class MovieFilterCriteriaComponent implements OnInit {
 
   getYears() {
     const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
-    return range(1900,2020,1)
+    return range(1977,2015,1)
   }
 
   closeFilterCard() {
     this.open = false;
+  }
+
+  onChangeYear(year) {
+    this.dataService.yearMovie$.emit(year)
   }
 
   ngOnInit(): void {
