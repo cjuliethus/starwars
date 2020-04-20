@@ -14,7 +14,7 @@
         <form>
           <div class="criteria-name">
             <label for="movieName">Título</label>
-            <input type="text" id="movieName">
+            <input type="text" id="movieName" (keyup)="onChangeName($event.target.value)">
           </div>
           <div class="criteria-year">
             <label for="movieYear">Año</label>

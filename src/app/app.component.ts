@@ -10,9 +10,11 @@ import { DataService } from './data.service';
 export class AppComponent {
   title = 'starwars';
   yearMovieFilter = '';
+  nameMovieFilter = '';
 
   constructor(private http: HttpClient, private dataService: DataService) {
     dataService.yearMovie$.subscribe(yearMovie => this.yearMovieFilter = yearMovie)
+    dataService.nameMovie$.subscribe(nameMovie => this.nameMovieFilter = nameMovie)
   }
   readonly ROOT_URL = 'http://swapi.py4e.com/api/films/';
   posts: any;

@@ -5,7 +5,7 @@
   <div class="movies-list">
     <app-movie-card
       (click)="openDetail()"
-      *ngFor="let item of movieList | filter:yearMovieFilter"
+      *ngFor="let item of movieList | filter:yearMovieFilter: nameMovieFilter" 
       [id]="item.episode_id"
       [title]="item.title"
       [episode]="item.episode_id"

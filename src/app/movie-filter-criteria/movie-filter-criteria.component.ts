@@ -30,6 +30,9 @@ export class MovieFilterCriteriaComponent implements OnInit {
   onChangeYear(year) {
     this.dataService.yearMovie$.emit(year)
   }
+  onChangeName(name){
+    this.dataService.nameMovie$.emit(name)
+  }
 
   ngOnInit(): void {
   }

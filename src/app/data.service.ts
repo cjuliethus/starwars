@@ -7,5 +7,7 @@ export class DataService {
 
   yearMovie$ = new EventEmitter<string>();
 
+  nameMovie$ = new EventEmitter<string>();
+
   constructor() { }
 }
