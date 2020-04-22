@@ -4,17 +4,27 @@
   </div>
   <div class="movies-list">
     <app-movie-card
-      (click)="openDetail()"
-      *ngFor="let item of movieList | filter:yearMovieFilter: nameMovieFilter" 
+      *ngFor="let item of movieList | filter: yearMovieFilter:nameMovieFilter"
+      (click)="openDetail(item)"
       [id]="item.episode_id"
       [title]="item.title"
       [episode]="item.episode_id"
       [description]="item.opening_crawl"
       [date]="item.release_date"
     ></app-movie-card>
-    <app-details-movie [open]="open"></app-details-movie>
+    <app-details-movie
+      [open]="open"
+      [title]="movieDetail.title"
+      [episode_movie]="movieDetail.episode_id"
+      [release_date]="movieDetail.release_date"
+      [description]="movieDetail.opening_crawl"
+      [director]="movieDetail.director"
+      [producer]="movieDetail.producer"
+
+    >
+    </app-details-movie>
   </div>
   <div class="movie-filter">
-    <app-movie-filter></app-movie-filter> 
+    <app-movie-filter></app-movie-filter>
   </div>
 </div>

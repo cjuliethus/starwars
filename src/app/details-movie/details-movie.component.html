@@ -1,4 +1,24 @@
 <div class="detail-card" *ngIf="open">
   <div class="content">
+    <div class="bar-actions">
+      <p>Star Wars Movie # {{ episode_movie }}</p>
+      <div class="close-icon" >x</div>
+    </div>
+    <div class="picture-zone">
+      <img
+        [src]="'../assets/card/card-movie-' + episode_movie + '.jpg'"
+        alt=""
+      />
+    </div>
+    <div class="menu-zone">
+      <div>Descripción</div>
+    </div>
+    <div class="details-zone">
+      <p><b>Release Date:</b> {{ release_date }}</p>
+      <p><b>Title:</b> {{ title }}</p>
+      <p><b>Descripction:</b> {{ description }}</p>
+      <p><b>Director:</b> {{ director }}</p>
+      <p><b>Productor:</b> {{ producer }}</p>
+    </div>
   </div>
 </div>

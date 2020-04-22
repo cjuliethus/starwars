@@ -13,8 +13,12 @@ export class AppComponent {
   nameMovieFilter = '';
 
   constructor(private http: HttpClient, private dataService: DataService) {
-    dataService.yearMovie$.subscribe(yearMovie => this.yearMovieFilter = yearMovie)
-    dataService.nameMovie$.subscribe(nameMovie => this.nameMovieFilter = nameMovie)
+    dataService.yearMovie$.subscribe(
+      (yearMovie) => (this.yearMovieFilter = yearMovie)
+    );
+    dataService.nameMovie$.subscribe(
+      (nameMovie) => (this.nameMovieFilter = nameMovie)
+    );
   }
   readonly ROOT_URL = 'http://swapi.py4e.com/api/films/';
   posts: any;
@@ -25,8 +29,19 @@ export class AppComponent {
   movieList = [];
 
   open = false;
-  openDetail() {
+
+  movieDetail = {
+    title: '',
+    episode_id: '',
+    opening_crawl: '',
+    release_date: '',
+    director: '',
+    producer: ''
+  };
+
+  openDetail(movie) {
     this.open = !this.open;
+    this.movieDetail = movie;
   }
   ngOnInit() {
     this.getFilms().subscribe((data: any[]) => {
