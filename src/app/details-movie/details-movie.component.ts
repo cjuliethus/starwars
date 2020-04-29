@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-details-movie',
@@ -23,5 +23,12 @@ export class DetailsMovieComponent implements OnInit {
   director = '';
   @Input()
   producer = '';
+
+  @Output()
+  public detailClose = new EventEmitter();
+  onDetailClose() {
+    this.detailClose.emit();
+  }
+
   ngOnInit(): void {}
 }

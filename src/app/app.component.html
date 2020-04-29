@@ -14,14 +14,13 @@
     ></app-movie-card>
     <app-details-movie
       [open]="open"
-      (click)="openDetail({})"
+      (detailClose)="openDetail({})"
       [title]="movieDetail.title"
       [episode_movie]="movieDetail.episode_id"
       [release_date]="movieDetail.release_date"
       [description]="movieDetail.opening_crawl"
       [director]="movieDetail.director"
       [producer]="movieDetail.producer"
-
     >
     </app-details-movie>
   </div>
