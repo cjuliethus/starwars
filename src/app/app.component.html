@@ -3,15 +3,18 @@
     <img src="../assets/Star_Wars_Yellow_Logo.svg" alt="Starwars logo" />
   </div>
   <div class="movies-list">
-    <app-movie-card
-      *ngFor="let item of movieList | filter: yearMovieFilter:nameMovieFilter"
-      (click)="openDetail(item)"
-      [id]="item.episode_id"
-      [title]="item.title"
-      [episode]="item.episode_id"
-      [description]="item.opening_crawl"
-      [date]="item.release_date"
-    ></app-movie-card>
+    <app-scroll-wrapper>
+      <app-movie-card
+        *ngFor="let item of movieList | filter: yearMovieFilter:nameMovieFilter"
+        (click)="openDetail(item)"
+        [id]="item.episode_id"
+        [title]="item.title"
+        [episode]="item.episode_id"
+        [description]="item.opening_crawl"
+        [date]="item.release_date"
+      ></app-movie-card>
+    </app-scroll-wrapper>
+
     <app-details-movie
       [open]="open"
       (detailClose)="openDetail({})"
