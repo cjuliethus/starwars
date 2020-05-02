@@ -30,5 +30,14 @@ export class DetailsMovieComponent implements OnInit {
     this.detailClose.emit();
   }
 
+  @Output()
+  active_section = 'descripcion';
+
+  @Output()
+  activeSection(section) {
+    this.active_section = section;
+  }
+
+  @Output()
   ngOnInit(): void {}
 }
