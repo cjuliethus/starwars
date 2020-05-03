@@ -51,10 +51,19 @@
         <p><b>Productor:</b> {{ producer }}</p>
       </div>
       <div class="personajes-zone" *ngIf="active_section == 'personajes'">
-        <P>personajes</P>
+        <div *ngFor="let item of arrayContentSectionSelected">
+          <div (click)="showDetail(item.name)" class="title-content">
+            <p><b>Name:</b> {{ item.name }}</p>
+          </div>
+          <div *ngIf="detail_section == item.name">
+            <p><b>Gender:</b> {{ item.gender }}</p>
+            <p><b>Birth year:</b> {{ item.birth_year }}</p>
+          </div>
+          <hr>
+        </div>
       </div>
       <div class="personajes-zone" *ngIf="active_section == 'planetas'">
-        <div *ngFor="let item of planetsContent">
+        <div *ngFor="let item of arrayContentSectionSelected">
           <div (click)="showDetail(item.name)" class="title-content">
             <p><b>Name:</b> {{ item.name }}</p>
           </div>
