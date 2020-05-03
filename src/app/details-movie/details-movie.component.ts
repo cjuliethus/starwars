@@ -46,6 +46,8 @@ export class DetailsMovieComponent implements OnInit {
   @Output()
   public detailClose = new EventEmitter();
   onDetailClose() {
+    this.active_section = 'descripcion';
+    this.detail_section = '';
     this.detailClose.emit();
   }
 
@@ -72,5 +74,11 @@ export class DetailsMovieComponent implements OnInit {
 
   getPlanet(planet) {
     return this.http.get(planet);
+  }
+
+  detail_section = '';
+
+  showDetail(name){
+    this.detail_section = name;
   }
 }

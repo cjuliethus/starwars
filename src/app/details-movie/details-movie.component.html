@@ -54,7 +54,16 @@
         <P>personajes</P>
       </div>
       <div class="personajes-zone" *ngIf="active_section == 'planetas'">
-        <P>Planetas</P>
+        <div *ngFor="let item of planetsContent">
+          <div (click)="showDetail(item.name)" class="title-content">
+            <p><b>Name:</b> {{ item.name }}</p>
+          </div>
+          <div *ngIf="detail_section == item.name">
+            <p><b>Climate:</b> {{ item.climate }}</p>
+            <p><b>Terrain:</b> {{ item.terrain }}</p>
+          </div>
+          <hr>
+        </div>
       </div>
       <div class="personajes-zone" *ngIf="active_section == 'vehiculos'">
         <P>Vehiculos</P>
