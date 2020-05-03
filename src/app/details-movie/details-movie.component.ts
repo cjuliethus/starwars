@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-details-movie',
@@ -6,7 +7,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./details-movie.component.less'],
 })
 export class DetailsMovieComponent implements OnInit {
-  constructor() {}
+  constructor(private http: HttpClient) {
+
+  }
   @Input()
   open = false;
   @Input()
@@ -23,6 +26,22 @@ export class DetailsMovieComponent implements OnInit {
   director = '';
   @Input()
   producer = '';
+  @Input()
+  planets = [];
+
+  planetDetails = {
+    name: '',
+    rotation_period: '',
+    orbital_period: '',
+    diameter: '',
+    climate: '',
+    gravity: '',
+    terrain: '',
+    surface_water: '',
+    population: ''
+  }
+
+  planetsContent = [];
 
   @Output()
   public detailClose = new EventEmitter();
@@ -35,9 +54,23 @@ export class DetailsMovieComponent implements OnInit {
 
   @Output()
   activeSection(section) {
+    if (section == 'planetas'){
+      this.planetsContent = [];
+      this.planets.forEach(element => {
+        this.getPlanet(element).subscribe((data: any) => {
+          this.planetDetails = data;
+          this.planetsContent.push(this.planetDetails);
+        });
+      });
+    }
+    console.log(this.planetsContent)
     this.active_section = section;
   }
 
   @Output()
   ngOnInit(): void {}
+
+  getPlanet(planet) {
+    return this.http.get(planet);
+  }
 }
