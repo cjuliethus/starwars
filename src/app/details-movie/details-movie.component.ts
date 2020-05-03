@@ -28,6 +28,8 @@ export class DetailsMovieComponent implements OnInit {
   producer = '';
   @Input()
   planets = [];
+  @Input()
+  characters = [];
 
   planetDetails = {
     name: '',
@@ -41,7 +43,7 @@ export class DetailsMovieComponent implements OnInit {
     population: ''
   }
 
-  planetsContent = [];
+  arrayContentSectionSelected = [];
 
   @Output()
   public detailClose = new EventEmitter();
@@ -57,22 +59,30 @@ export class DetailsMovieComponent implements OnInit {
   @Output()
   activeSection(section) {
     if (section == 'planetas'){
-      this.planetsContent = [];
-      this.planets.forEach(element => {
-        this.getPlanet(element).subscribe((data: any) => {
+      this.arrayContentSectionSelected = [];
+      this.planets.forEach(planet => {
+        this.getServiceFor(planet).subscribe((data: any) => {
           this.planetDetails = data;
-          this.planetsContent.push(this.planetDetails);
+          this.arrayContentSectionSelected.push(this.planetDetails);
         });
       });
     }
-    console.log(this.planetsContent)
+    if (section == 'personajes'){
+      this.arrayContentSectionSelected = [];
+      this.characters.forEach(character => {
+        this.getServiceFor(character).subscribe((data: any) => {
+          this.arrayContentSectionSelected.push(data);
+        });
+      });
+    }
+    console.log(this.arrayContentSectionSelected)
     this.active_section = section;
   }
 
   @Output()
   ngOnInit(): void {}
 
-  getPlanet(planet) {
+  getServiceFor(planet) {
     return this.http.get(planet);
   }
 

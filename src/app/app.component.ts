@@ -37,7 +37,8 @@ export class AppComponent {
     release_date: '',
     director: '',
     producer: '',
-    planets: []
+    planets: [],
+    characters: []
   };
 
   openDetail(movie) {
