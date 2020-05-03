@@ -11,13 +11,36 @@
       />
     </div>
     <div class="menu-zone">
-      <div class="option" (click)="activeSection('descripcion')">
+      <div
+        [class]="active_section == 'descripcion' ? 'option active' : 'option'"
+        (click)="activeSection('descripcion')"
+      >
         Descripción
       </div>
-      <div class="option" (click)="activeSection('personajes')">Personajes</div>
-      <div class="option" (click)="activeSection('planetas')">Planetas</div>
-      <div class="option" (click)="activeSection('vehiculos')">Vehiculos</div>
-      <div class="option" (click)="activeSection('especies')">Especies</div>
+      <div
+        [class]="active_section == 'personajes' ? 'option active' : 'option'"
+        (click)="activeSection('personajes')"
+      >
+        Personajes
+      </div>
+      <div
+        [class]="active_section == 'planetas' ? 'option active' : 'option'"
+        (click)="activeSection('planetas')"
+      >
+        Planetas
+      </div>
+      <div
+        [class]="active_section == 'vehiculos' ? 'option active' : 'option'"
+        (click)="activeSection('vehiculos')"
+      >
+        Vehiculos
+      </div>
+      <div
+        [class]="active_section == 'especies' ? 'option active' : 'option'"
+        (click)="activeSection('especies')"
+      >
+        Especies
+      </div>
     </div>
     <div class="index-zone">
       <div class="details-zone" *ngIf="active_section == 'descripcion'">
