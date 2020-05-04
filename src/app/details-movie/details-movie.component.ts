@@ -59,21 +59,10 @@ export class DetailsMovieComponent implements OnInit {
   @Output()
   activeSection(section) {
     if (section == 'planetas'){
-      this.arrayContentSectionSelected = [];
-      this.planets.forEach(planet => {
-        this.getServiceFor(planet).subscribe((data: any) => {
-          this.planetDetails = data;
-          this.arrayContentSectionSelected.push(this.planetDetails);
-        });
-      });
+      this.getDetailSelected(this.planets)
     }
     if (section == 'personajes'){
-      this.arrayContentSectionSelected = [];
-      this.characters.forEach(character => {
-        this.getServiceFor(character).subscribe((data: any) => {
-          this.arrayContentSectionSelected.push(data);
-        });
-      });
+      this.getDetailSelected(this.characters)
     }
     console.log(this.arrayContentSectionSelected)
     this.active_section = section;
@@ -82,8 +71,17 @@ export class DetailsMovieComponent implements OnInit {
   @Output()
   ngOnInit(): void {}
 
-  getServiceFor(planet) {
-    return this.http.get(planet);
+  getDetailSelected(array) {
+    this.arrayContentSectionSelected = [];
+    array.forEach(character => {
+      this.getServiceFor(character).subscribe((data: any) => {
+        this.arrayContentSectionSelected.push(data);
+      });
+    });
+  }
+
+  getServiceFor(url) {
+    return this.http.get(url);
   }
 
   detail_section = '';
