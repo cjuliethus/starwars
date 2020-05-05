@@ -19,24 +19,29 @@ export class ScrollWrapperComponent implements OnInit {
       normalizedPosition,
       scrollerBeingDragged = false;
 
-    let topPosition, scrollerHeight;
+    let topPosition, scrollerHeight,scrollerOffSet;
 
     function calculateScrollerHeight() {
-      // *Calculation of how tall scroller should be
       return 20;
-      const visibleRatio =
-        scrollContainer.offsetHeight / scrollContentWrapper.scrollHeight;
-      return visibleRatio * scrollContainer.offsetHeight;
     }
-
+    function calculateScrolleroffSet() {
+      return scrollContainer.offsetHeight*30 /100 
+    }
+    function calculateScrollerPanelHeight() {
+      return scrollContainer.offsetHeight*40 /100 
+    }
     function moveScroller(evt) {
       // Move Scroll bar to top offset
       const scrollPercentage =
-        evt.target.scrollTop / scrollContentWrapper.scrollHeight;
+       ( evt.target.scrollTop ) / scrollContainer.offsetHeight;
+
+     
+
       console.log(evt.target.scrollTop);
       console.log(scrollContainer.offsetHeight);
-      console.log(scrollContentWrapper.scrollHeight);
-      topPosition = scrollPercentage * (scrollContainer.offsetHeight - 5) + 50;
+      console.log(scrollerOffSet);
+      console.log(calculateScrollerPanelHeight());
+      topPosition = scrollPercentage * calculateScrollerPanelHeight() + scrollerOffSet;
       scroller.style.top = topPosition + 'px';
     }
 
@@ -63,11 +68,13 @@ export class ScrollWrapperComponent implements OnInit {
     function createScroller() {
       // determine how big scroller should be based on content
       scrollerHeight = calculateScrollerHeight();
-
+      scrollerOffSet = calculateScrolleroffSet();
       if (scrollerHeight / scrollContainer.offsetHeight < 1) {
         // *If there is a need to have scroll bar based on content size
         scroller.style.height = scrollerHeight + 'px';
 
+        scroller.style.top = scrollerOffSet + 'px';
+        
         // append scroller to scrollContainer div
         scrollContainer.appendChild(scroller);
 

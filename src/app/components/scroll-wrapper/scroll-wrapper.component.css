@@ -8,9 +8,9 @@
 .scrollable.showScroll::after {
   position: absolute;
   content: "";
-  top: 5%;
+  top: 30%;
   right: 20px;
-  height: 90%;
+  height: 38%;
   width: 3px;
   background: rgba(224, 224, 255, 0.3);
 }
@@ -29,7 +29,7 @@
   border-radius: 5px;
   background: white;
   box-shadow: 4px 7px 8px rgba(0, 0, 0, 0.25);
-  top: 0px;
+  /* top: 0px; */
   right: 3px;
   -webkit-transition: top 0.08s;
   -moz-transition: top 0.08s;

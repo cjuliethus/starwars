@@ -32,7 +32,9 @@ export class DetailsMovieComponent implements OnInit {
   characters = [];
   @Input()
   species = [];
-  ;
+  @Input()
+  starShips = [];
+  
 
   planetDetails = {
     name: '',
@@ -71,6 +73,9 @@ export class DetailsMovieComponent implements OnInit {
       this.getDetailSelected(this.species)
     }
 
+    if (section == 'starShips'){
+      this.getDetailSelected(this.starShips)
+    }
     console.log(this.arrayContentSectionSelected)
     this.active_section = section;
   }
