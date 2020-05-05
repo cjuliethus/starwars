@@ -34,7 +34,8 @@ export class DetailsMovieComponent implements OnInit {
   species = [];
   @Input()
   starShips = [];
-  
+  @Input()
+  vehiclesList = [];
 
   planetDetails = {
     name: '',
@@ -45,8 +46,8 @@ export class DetailsMovieComponent implements OnInit {
     gravity: '',
     terrain: '',
     surface_water: '',
-    population: ''
-  }
+    population: '',
+  };
 
   arrayContentSectionSelected = [];
 
@@ -76,7 +77,6 @@ export class DetailsMovieComponent implements OnInit {
     if (section == 'starShips'){
       this.getDetailSelected(this.starShips)
     }
-    console.log(this.arrayContentSectionSelected)
     this.active_section = section;
   }
 
@@ -85,7 +85,7 @@ export class DetailsMovieComponent implements OnInit {
 
   getDetailSelected(array) {
     this.arrayContentSectionSelected = [];
-    array.forEach(character => {
+    array.forEach((character) => {
       this.getServiceFor(character).subscribe((data: any) => {
         this.arrayContentSectionSelected.push(data);
       });
@@ -98,8 +98,7 @@ export class DetailsMovieComponent implements OnInit {
 
   detail_section = '';
 
-  showDetail(name){
+  showDetail(name) {
     this.detail_section = name;
   }
- 
 }

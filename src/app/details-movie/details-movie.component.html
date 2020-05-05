@@ -15,7 +15,7 @@
         [class]="active_section == 'descripcion' ? 'option active' : 'option'"
         (click)="activeSection('descripcion')"
       >
-        Descripction
+        Description
       </div>
       <div
         [class]="active_section == 'personajes' ? 'option active' : 'option'"
@@ -42,11 +42,11 @@
         Species
       </div>
       <div
-      [class]="active_section == 'starShips' ? 'option active' : 'option'"
-      (click)="activeSection('starShips')"
-    >
-    StarShips
-    </div>
+        [class]="active_section == 'starShips' ? 'option active' : 'option'"
+        (click)="activeSection('starShips')"
+      >
+        StarShips
+      </div>
     </div>
     <div class="index-zone">
       <div class="details-zone" *ngIf="active_section == 'descripcion'">
@@ -65,7 +65,7 @@
             <p><b>Gender:</b> {{ item.gender }}</p>
             <p><b>Birth year:</b> {{ item.birth_year }}</p>
           </div>
-          <hr>
+          <hr />
         </div>
       </div>
       <div class="personajes-zone" *ngIf="active_section == 'planetas'">
@@ -77,11 +77,22 @@
             <p><b>Climate:</b> {{ item.climate }}</p>
             <p><b>Terrain:</b> {{ item.terrain }}</p>
           </div>
-          <hr>
+          <hr />
         </div>
       </div>
-      <div class="personajes-zone" *ngIf="active_section == 'vehiculos'">
-        <P>Vehiculos</P>
+      <div class="vehiculos-zone" *ngIf="active_section == 'vehiculos'">
+        <div *ngIf="vehiclesList.length == 0" class="no-vehicles">
+          This movie dosen't have any vehicles
+        </div>
+        <div class="vehicle" *ngFor="let item of vehiclesList">
+          <div class="circle">{{ item.name }}</div>
+          <div>
+            <p><b>Name:</b> {{ item.name }}</p>
+            <p><b>Model:</b> {{ item.model }}</p>
+            <p><b>Manufacturer:</b> {{ item.manufacturer }}</p>
+            <p><b>Passengers:</b> {{ item.passengers }}</p>
+          </div>
+        </div>
       </div>
       <div class="personajes-zone" *ngIf="active_section == 'especies'">
         <div *ngFor="let item of arrayContentSectionSelected">
@@ -93,7 +104,7 @@
             <p><b>Designation:</b> {{ item.designation }}</p>
             <p><b>Language:</b> {{ item.language }}</p>
           </div>
-          <hr>
+          <hr />
         </div>
       </div>
       <div class="personajes-zone" *ngIf="active_section == 'starShips'">
@@ -106,7 +117,7 @@
             <p><b>Designation:</b> {{ item.designation }}</p>
             <p><b>Language:</b> {{ item.language }}</p>
           </div>
-          <hr>
+          <hr />
         </div>
       </div>
     </div>

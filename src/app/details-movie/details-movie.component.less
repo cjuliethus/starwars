@@ -78,7 +78,7 @@
 
     .index-zone {
       padding: 10px;
-      height: 200px;
+      height: 90%;
       overflow-y: scroll;
       overflow-x: hidden;
     }
@@ -86,6 +86,51 @@
     .details-zone {
       margin: 5px;
       font-size: 14px;
+    }
+
+    .vehiculos-zone {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 15px;
+      padding: 10px;
+
+      .no-vehicles {
+        width: 100%;
+        display: grid;
+        justify-content: center;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        height: 150px;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 600;
+        color: #bd1515;
+      }
+
+      .vehicle {
+        border: 1px solid #cecece;
+        padding: 10px;
+        display: grid;
+        border-radius: 5px;
+        grid-template-columns: 35% 1fr;
+        font-size: 15px;
+
+        .circle {
+          border: 1px solid #cecece;
+          border-radius: 50%;
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          background-color: #1c1d39;
+          color: #fff;
+          height: 130px;
+          font-weight: 400;
+          width: 130px;
+          margin: auto;
+        }
+      }
+
     }
 
     .title-content {
