@@ -30,6 +30,9 @@ export class DetailsMovieComponent implements OnInit {
   planets = [];
   @Input()
   characters = [];
+  @Input()
+  species = [];
+  ;
 
   planetDetails = {
     name: '',
@@ -64,6 +67,10 @@ export class DetailsMovieComponent implements OnInit {
     if (section == 'personajes'){
       this.getDetailSelected(this.characters)
     }
+    if (section == 'especies'){
+      this.getDetailSelected(this.species)
+    }
+
     console.log(this.arrayContentSectionSelected)
     this.active_section = section;
   }
@@ -89,4 +96,5 @@ export class DetailsMovieComponent implements OnInit {
   showDetail(name){
     this.detail_section = name;
   }
+ 
 }

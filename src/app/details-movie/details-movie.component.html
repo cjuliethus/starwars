@@ -78,7 +78,17 @@
         <P>Vehiculos</P>
       </div>
       <div class="personajes-zone" *ngIf="active_section == 'especies'">
-        <P>Especies</P>
+        <div *ngFor="let item of arrayContentSectionSelected">
+          <div (click)="showDetail(item.name)" class="title-content">
+            <p><b>Name:</b> {{ item.name }}</p>
+          </div>
+          <div *ngIf="detail_section == item.name">
+            <p><b>Classification:</b> {{ item.classification }}</p>
+            <p><b>Designation:</b> {{ item.designation }}</p>
+            <p><b>Language:</b> {{ item.language }}</p>
+          </div>
+          <hr>
+        </div>
       </div>
     </div>
   </div>

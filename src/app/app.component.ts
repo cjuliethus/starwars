@@ -38,7 +38,8 @@ export class AppComponent {
     director: '',
     producer: '',
     planets: [],
-    characters: []
+    characters: [],
+    species: []
   };
 
   openDetail(movie) {
