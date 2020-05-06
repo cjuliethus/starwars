@@ -7,9 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./details-movie.component.less'],
 })
 export class DetailsMovieComponent implements OnInit {
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) {}
   @Input()
   open = false;
   @Input()
@@ -64,18 +62,18 @@ export class DetailsMovieComponent implements OnInit {
 
   @Output()
   activeSection(section) {
-    if (section == 'planetas'){
-      this.getDetailSelected(this.planets)
+    if (section == 'planetas') {
+      this.getDetailSelected(this.planets);
     }
-    if (section == 'personajes'){
-      this.getDetailSelected(this.characters)
+    if (section == 'personajes') {
+      this.getDetailSelected(this.characters);
     }
-    if (section == 'especies'){
-      this.getDetailSelected(this.species)
+    if (section == 'especies') {
+      this.getDetailSelected(this.species);
     }
 
-    if (section == 'starShips'){
-      this.getDetailSelected(this.starShips)
+    if (section == 'starShips') {
+      this.getDetailSelected(this.starShips);
     }
     this.active_section = section;
   }

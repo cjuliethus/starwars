@@ -109,17 +109,18 @@
           <hr />
         </div>
       </div>
-      <div class="personajes-zone" *ngIf="active_section == 'starShips'">
-        <div *ngFor="let item of arrayContentSectionSelected">
-          <div (click)="showDetail(item.name)" class="title-content">
-            <p><b>Name:</b> {{ item.name }}</p>
+      <div class="detail-zone" *ngIf="active_section == 'starShips'">
+        <div *ngIf="arrayContentSectionSelected.length == 0" class="no-detail">
+          This movie dosen't have any starShip
+        </div>
+        <div class="detail" *ngFor="let item of arrayContentSectionSelected">
+          <div class="circle">{{ item.name }}</div>
+          <div>
+            <p><b>Model:</b> {{ item.model }}</p>
+            <p><b>Manufacturer:</b> {{ item.manufacturer }}</p>
+            <p><b>Length:</b> {{ item.length }}</p>
+            <p><b>Cost in Credits:</b> {{ item.cost_in_credits }}</p>
           </div>
-          <div *ngIf="detail_section == item.name">
-            <p><b>Classification:</b> {{ item.classification }}</p>
-            <p><b>Designation:</b> {{ item.designation }}</p>
-            <p><b>Language:</b> {{ item.language }}</p>
-          </div>
-          <hr />
         </div>
       </div>
     </div>
