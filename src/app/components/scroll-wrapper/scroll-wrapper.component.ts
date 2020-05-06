@@ -19,29 +19,28 @@ export class ScrollWrapperComponent implements OnInit {
       normalizedPosition,
       scrollerBeingDragged = false;
 
-    let topPosition, scrollerHeight,scrollerOffSet;
+    let topPosition, scrollerHeight, scrollerOffSet;
 
     function calculateScrollerHeight() {
       return 20;
     }
     function calculateScrolleroffSet() {
-      return scrollContainer.offsetHeight*30 /100 
+      return (scrollContainer.offsetHeight * 30) / 100;
     }
     function calculateScrollerPanelHeight() {
-      return scrollContainer.offsetHeight*40 /100 
+      return (scrollContainer.offsetHeight * 40) / 100;
     }
     function moveScroller(evt) {
       // Move Scroll bar to top offset
       const scrollPercentage =
-       ( evt.target.scrollTop ) / scrollContainer.offsetHeight;
-
-     
+        evt.target.scrollTop / scrollContainer.offsetHeight;
 
       console.log(evt.target.scrollTop);
       console.log(scrollContainer.offsetHeight);
       console.log(scrollerOffSet);
       console.log(calculateScrollerPanelHeight());
-      topPosition = scrollPercentage * calculateScrollerPanelHeight() + scrollerOffSet;
+      topPosition =
+        scrollPercentage * calculateScrollerPanelHeight() + scrollerOffSet;
       scroller.style.top = topPosition + 'px';
     }
 
@@ -74,7 +73,7 @@ export class ScrollWrapperComponent implements OnInit {
         scroller.style.height = scrollerHeight + 'px';
 
         scroller.style.top = scrollerOffSet + 'px';
-        
+
         // append scroller to scrollContainer div
         scrollContainer.appendChild(scroller);
 
