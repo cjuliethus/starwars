@@ -96,17 +96,17 @@
           </div>
         </div>
       </div>
-      <div class="personajes-zone" *ngIf="active_section == 'especies'">
-        <div *ngFor="let item of arrayContentSectionSelected">
-          <div (click)="showDetail(item.name)" class="title-content">
-            <p><b>Name:</b> {{ item.name }}</p>
-          </div>
-          <div *ngIf="detail_section == item.name">
+      <div class="detail-zone" *ngIf="active_section == 'especies'">
+        <div *ngIf="arrayContentSectionSelected.length == 0" class="no-detail">
+          This movie dosen't have any species
+        </div>
+        <div class= "detail" *ngFor="let item of arrayContentSectionSelected">
+          <div class="circle"> {{ item.name }} </div>
+          <div>
             <p><b>Classification:</b> {{ item.classification }}</p>
             <p><b>Designation:</b> {{ item.designation }}</p>
             <p><b>Language:</b> {{ item.language }}</p>
           </div>
-          <hr />
         </div>
       </div>
       <div class="detail-zone" *ngIf="active_section == 'starShips'">
