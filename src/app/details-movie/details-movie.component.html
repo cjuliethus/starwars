@@ -56,35 +56,37 @@
         <p><b>Director:</b> {{ director }}</p>
         <p><b>Productor:</b> {{ producer }}</p>
       </div>
-      <div class="personajes-zone" *ngIf="active_section == 'personajes'">
-        <div *ngFor="let item of arrayContentSectionSelected">
-          <div (click)="showDetail(item.name)" class="title-content">
+      <div class="detail-zone" *ngIf="active_section == 'personajes'">
+        <div *ngIf="arrayContentSectionSelected.length == 0" class="no-detail">
+          This movie dosen't have any characters
+        </div>
+        <div class="detail" *ngFor="let item of arrayContentSectionSelected">
+          <div class="circle">{{ item.name }}</div>
+          <div>
             <p><b>Name:</b> {{ item.name }}</p>
-          </div>
-          <div *ngIf="detail_section == item.name">
             <p><b>Gender:</b> {{ item.gender }}</p>
             <p><b>Birth year:</b> {{ item.birth_year }}</p>
           </div>
-          <hr />
         </div>
       </div>
-      <div class="personajes-zone" *ngIf="active_section == 'planetas'">
-        <div *ngFor="let item of arrayContentSectionSelected">
-          <div (click)="showDetail(item.name)" class="title-content">
+      <div class="detail-zone" *ngIf="active_section == 'planetas'">
+        <div *ngIf="arrayContentSectionSelected.length == 0" class="no-detail">
+          This movie dosen't have any planets
+        </div>
+        <div class="detail" *ngFor="let item of arrayContentSectionSelected">
+          <div class="circle">{{ item.name }}</div>
+          <div>
             <p><b>Name:</b> {{ item.name }}</p>
-          </div>
-          <div *ngIf="detail_section == item.name">
             <p><b>Climate:</b> {{ item.climate }}</p>
             <p><b>Terrain:</b> {{ item.terrain }}</p>
           </div>
-          <hr />
         </div>
       </div>
-      <div class="vehiculos-zone" *ngIf="active_section == 'vehiculos'">
-        <div *ngIf="vehiclesList.length == 0" class="no-vehicles">
+      <div class="detail-zone" *ngIf="active_section == 'vehiculos'">
+        <div *ngIf="vehiclesList.length == 0" class="no-detail">
           This movie dosen't have any vehicles
         </div>
-        <div class="vehicle" *ngFor="let item of vehiclesList">
+        <div class="detail" *ngFor="let item of vehiclesList">
           <div class="circle">{{ item.name }}</div>
           <div>
             <p><b>Name:</b> {{ item.name }}</p>

@@ -61,11 +61,7 @@ export class AppComponent {
       let newVehicles = [];
       this.movieDetail['vehicles'].map((vehicle) => {
         let datos = data['results'];
-        let vehiculo = datos.find(
-          (element) =>
-            element.url.slice(5, element.url.length) ==
-            vehicle.slice(6, vehicle.length)
-        );
+        let vehiculo = datos.find((element) => element.url == vehicle);
         if (vehiculo != undefined) {
           newVehicles.push(vehiculo);
         }
